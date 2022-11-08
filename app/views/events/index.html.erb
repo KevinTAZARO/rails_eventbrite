@@ -5,7 +5,7 @@
         <div class="container">
           <h1 class="display-3"><strong><font color="#f05537">Pour ceux</font></strong>  qui adorent sortir!</h1>
           <p>Dites-nous ce que vous aimez. Nous trouverons des recommandations d’événements rien que pour vous.</p>
-          <p><a class="btn btn-primary btn-lg" href="#" role="button">Evénements populaires &raquo;</a></p><hr><br><br>
+          <p> <%= button_to "Evenements populaires", event_path(@events.sample.id), :method => "get", class:"btn btn-primary btn-lg"%></p><hr><br><br>
         </div>
       </div>
 

@@ -1,6 +1,6 @@
-# fly.toml file generated for bordel-app on 2022-11-07T22:04:43+01:00
+# fly.toml file generated for uiop on 2022-11-08T17:38:57+01:00
 
-app = "bordel-app"
+app = "uiop"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []

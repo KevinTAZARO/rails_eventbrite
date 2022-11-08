@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @event %>
-<strong>Organisateur :</strong> <%= link_to @event.admin.first_name, user_path(@event.admin_id) %><br><br>
+<strong>Organisateur:</strong> <%= link_to @event.admin.first_name, user_path(@event.admin_id) %><br><br>
 
 <div>
   <%= link_to "Edit this event", edit_event_path(@event) %> |
