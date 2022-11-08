@@ -1,0 +1,19 @@
+<center><h1>Irasshaimase sur ta page de profil <%=@user.first_name%> (ouais.)</h1></center>
+
+<br /><br /><br />
+<%=@user.first_name%><br />
+<%=@user.last_name%><br />
+<%=@user.description%><br />
+<p>Ton email <%=@user.email%></p><br />
+
+<%= link_to "Change ton email / password", edit_user_registration_path %> <br>
+<%= link_to "Change tes infos bro !", edit_user_path(@user.id) %> <br>
+
+<div class="container">
+        <%@user.events.all.each do |event|%>
+        <div class="card text-center bg-info text-white">
+            Title : <h5 class='card-title'><%=event.title%></h5>
+            <div class='btn'><%= link_to "Details", event_path(event.id), :class=>'btn btn-warning'%></div>
+        </div><br/>
+        <%end%>
+</div>

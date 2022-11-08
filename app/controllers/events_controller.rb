@@ -8,6 +8,7 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+    @event = Event.find(params[:id])
   end
 
   # GET /events/new
@@ -21,7 +22,17 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
-    @event = Event.new(event_params)
+    event = params[:event]
+
+    @event = Event.new(start_date: event[:start_date],
+      duration: event[:duration],
+      title: event[:title],
+      description: event[:description],
+      price: event[:price],
+      location: event[:location],
+      admin: current_user)
+
+    @user = User.find_by(email: params[:email])
 
     respond_to do |format|
       if @event.save
@@ -49,10 +60,11 @@ class EventsController < ApplicationController
 
   # DELETE /events/1 or /events/1.json
   def destroy
-    @event.destroy
+    @event = Event.find(params[:id])
+    @event.destroy if @event
 
     respond_to do |format|
-      format.html { redirect_to events_url, notice: "Event was successfully destroyed." }
+      format.html { redirect_to events_path, notice: "Event was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -63,8 +75,15 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
     end
 
+    def authenticate_user
+      unless current_user
+        redirect_to new_user_session_path
+        flash[:danger] = "Connecte toi !"
+      end
+    end
+
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:start_date, :duration, :title, :description, :price, :location)
+      params.require(:event).permit(:start_date, :duration, :title, :description, :price, :location, :user_id)
     end
 end

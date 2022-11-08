@@ -19,7 +19,7 @@ gem "puma", "~> 5.0"
 gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
+
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
@@ -79,3 +79,7 @@ gem 'mailjet'
 
 gem 'table_print'
 
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
