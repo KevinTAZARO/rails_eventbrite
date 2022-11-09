@@ -1,4 +1,4 @@
-<center><h1>Irasshaimase sur ta page de profil <%=@user.first_name%> (ouais.)</h1></center>
+<center><h1>Irasshaimase sur ta page de profil <%= @user.first_name %> (ouais.)</h1></center>
 
 <br /><br /><br />
 <%=@user.first_name%><br />
@@ -6,7 +6,7 @@
 <%=@user.description%><br />
 <p>Ton email <%=@user.email%></p><br />
 
-<%= link_to "Change ton email / password", edit_user_registration_path %> <br>
+<%= link_to "Change ton email / password", edit_user_registration_path %><br><br>
 <%= link_to "Change tes infos bro !", edit_user_path(@user.id) %> <br>
 
 <div class="container">
